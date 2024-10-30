@@ -29,7 +29,7 @@ def display_main_menu():
             print("calc_average")
 
 
-            def find_min_max(input list):
+            def find_min_max(input_list):
                 print("find_min_max")
 
 
@@ -46,7 +46,7 @@ def display_main_menu():
                             floatlist = get_user_input()
 
 
-                            if __name__ == "__main__":
+                            # if __name__ == "__main__":
 
 
 

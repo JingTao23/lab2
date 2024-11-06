@@ -25,7 +25,7 @@ def display_main_menu():
         print("FLoat list")
 
 
-        def cal_average(input_list):
+        def calc_average(input_list):
             print("calc_average")
 
 
@@ -39,6 +39,13 @@ def display_main_menu():
 
                     def calc_median_temperature(input_list):
                         print("calc_median_temperature")
+                        cnt = len(input_list)
+
+                        if cnt % 2 is 1:
+                            median = input_list[(cnt-1)//2]
+                        else:
+                            median = (input_list[cnt//2] + input_list[cnt//2-1])/2
+                            print("Median = ", median)
 
                         def main():
                             print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
@@ -46,7 +53,8 @@ def display_main_menu():
                             floatlist = get_user_input()
 
 
-                            #if __name__ == "__main__":
+                            if __name__ == "__main__":
+                                main()
 
 
 

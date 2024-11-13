@@ -1,62 +1,71 @@
+# ET0735 Lab 2 - Exercise 2
 # print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
-
-print("display_main_menu")
-print("Enter some number s separated by commas (e.g. 5,67)")
 
 def display_main_menu():
     print("display_main_menu")
+    print("Enter some numbers separated by commas (e.g. 5, 67, 32)")
 
 
-    def get_user_input():
-        print("get_user_input")
-        inputstr = input()
-        print("Raw Input = " + inputstr)
-
-        # split the input string in to segments of strings using comma as spliter
-        splitlist = inputstr.split(",")
-        print("After splitting = ",splitlist)
-
-        #next step is to convert each shirt string in the list into float
-        floatlist = [] # define an empty list of float numbers
-        for x in splitlist:
-            floatnum = float(x) #Convert string into float
-            floatlist.append(floatnum) # Add the float number to the float list
-            return floatlist
-        print("FLoat list")
-
-
-        def calc_average(input_list):
-            print("calc_average")
-
-
-            def find_min_max(input_list):
-                print("find_min_max")
-
-
-                def sort_temperature(input_list):
-                    print("sort_temperature")
-                    
-
-                    def calc_median_temperature(input_list):
-                        print("calc_median_temperature")
-                        cnt = len(input_list)
-
-                        if cnt % 2 is 1:
-                            median = input_list[(cnt-1)//2]
-                        else:
-                            median = (input_list[cnt//2] + input_list[cnt//2-1])/2
-                            print("Median = ", median)
-
-                        def main():
-                            print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
-                            display_main_menu()
-                            floatlist = get_user_input()
-
-
-                            if __name__ == "__main__":
-                                main()
+def get_user_input():
+    print("get_user_input")
+    inputstr = input()
+    strlist = inputstr.split(",")
+    #print(strlist)
+    floatlist = []
+    for x in strlist:
+        floatlist.append(float(x))
+    #print(floatlist)
+    return floatlist
 
 
 
+def calc_average(float_list):
+    print("calc_average")
+    average = sum(float_list) / len(float_list)
+    print("Average:", average)
+    return average
 
-                    
+
+
+def find_min_max(float_list):
+    print("find_min_max")
+    float_list.sort()
+    return [float_list[0], float_list[-1]]
+
+
+
+def sort_temperature(inputlist):
+    print("sort_temperature")
+    inputlist.sort()
+    print("Sorted = ", inputlist)
+    return inputlist
+
+
+def calc_median_temperature(sortedlist):
+    print("calc_median_temperature")
+    sortedlist.sort()
+    cnt = len(sortedlist)
+    print("cnt=", cnt)
+    if cnt%2 == 1:  # No. of elements i list is odd.
+        median = sortedlist[cnt//2]   # // is Integer Division
+    else:
+        median = (sortedlist[cnt//2 - 1] + sortedlist[cnt//2])/2
+    print("Median = ", median)
+    return median
+
+
+
+def main():
+    print("ET0735 (DevOps for AIoT) - Lab 2 - Introduction to Python")
+    display_main_menu()
+    num_list = get_user_input()
+    print(num_list)
+    average = calc_average(num_list)
+    min_max_list = find_min_max(num_list)
+    print(min_max_list)
+    sorted_list = sort_temperature(num_list)
+    calc_median_temperature(sorted_list)
+
+
+if __name__ == "__main__":
+    main()
